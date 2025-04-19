@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "b8cb36c9-e8f5-4e22-8e7b-0b4a3a48fd88",
+		"name": "Task Remarks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20191616"
+	},
+	"item": [
+		{
+			"name": "Task remarks",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/task/remark/create",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"task",
+						"remark",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task remarks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/task/remarks/{id}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"task",
+						"remarks",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task remarks",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/task/remark/edit/{id}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"task",
+						"remark",
+						"edit",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task remarks",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/task/remark/delete/{id}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"task",
+						"remark",
+						"delete",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
