@@ -1,0 +1,35 @@
+
+You are given a table user_app_usage that contains records of application usage by users throughout the 
+day. Each record represents a time interval where a specific application was used.
+
+data
+-----------
+ SELECT  *,  TIMESTAMPDIFF(MINUTE, 
+  (SELECT MIN(start_time)  FROM user_app_usage_1   WHERE DATE(start_time) = '2024-03-30 17:47:21'), start_time ) 
+ DIV 5 AS interval_set FROM user_app_usage_1 WHERE DATE(start_time) = '2024-03-30 17:47:21')
+
+
+interval_total
+------------------
+SELECT
+        interval_group,
+        MIN(start_time) AS interval_start,
+        MAX(end_time) AS interval_end,
+        (DISTINCT (app_name) ORDER BY app_name ) AS apps_used,
+        SUM( productivity_level = 2 ) AS productive_duration,
+        SUM(productivity_level = 0 ) AS unproductive_duration,
+        SUM( productivity_level = 1 ) AS neutral_duration,
+        SUM(duration) AS total_duration
+    FROM data
+    GROUP BY interval_set;
+
+
+SELECT
+    interval_start,
+    interval_end,
+    apps_used,
+    ROUND(productive_duration * 100.0 / total_duration, 2) AS productive_percent,
+    ROUND(unproductive_duration * 100.0 / total_duration, 2) AS unproductive_percent,
+    ROUND(neutral_duration * 100.0 / total_duration, 2) AS neutral_percent
+FROM interval_total
+ORDER BY interval_start; 
